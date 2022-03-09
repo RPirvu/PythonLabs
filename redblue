@@ -1,0 +1,40 @@
+import random
+
+redballs= 1 #1
+blueballs=19 #2
+k=0
+while(redballs>1 or blueballs>1):
+  if(redballs==0):
+    print("BB")
+    redballs = redballs+1
+    blueballs = blueballs-2
+  elif(blueballs==0):
+    print("RR")
+    redballs = redballs-1
+  else:
+    firstBall=random.choice([1,2])
+    secondBall=random.choice([1,2])
+    if(firstBall == 2 and secondBall == 2 and redballs > 1):
+      print("RR")
+      redballs = redballs-2
+      redballs = redballs+1
+    elif(firstBall == 1 and secondBall == 1 and blueballs > 1):
+      print("BB")
+      redballs = redballs+1
+      blueballs = blueballs-2
+    elif(firstBall == 1 and secondBall == 2 and redballs >= 1 and blueballs >= 1):
+      print("RB")
+      redballs = redballs-1
+    elif(firstBall == 2 and secondBall == 1 and redballs >= 1 and blueballs >= 1):
+      print("RB")
+      redballs = redballs-1
+    k=k+1
+    
+  
+if(redballs==1 and blueballs==0):
+  print("Red Ball")
+elif(redballs==0 and blueballs==1):
+  print("Blue Ball")
+elif(redballs==1 and blueballs==1):
+  redballs-=1 
+  print("Blue Ball")
